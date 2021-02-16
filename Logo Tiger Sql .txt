@@ -1,0 +1,16 @@
+ select
+ DISTINCT 
+       P.[LREF]
+      ,P.[NAME] 
+	  ,P.[SURNAME] 
+      ,P.[STATUS] as IsMarried
+      ,P.[BIRTHDATE]
+      ,P.[EDUCATION]
+      ,P.[INDATE] as StartDate
+      ,P.[TTFNO] as TcNo
+	  ,A.PROFESSION	as Job
+
+  FROM LH_002_PERSON as P
+  inner join [LH_002_PERIDINF] as A
+  on P.TTFNO = A.IDTCNO 
+  where TYP = 1 and SSKNO !='' and TTFNO !=''
